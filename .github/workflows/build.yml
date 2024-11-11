@@ -1,0 +1,44 @@
+name: Build Tauri App for Windows
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: x86_64-pc-windows-msvc
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' # Use the version required by your frontend
+
+      - name: Install dependencies
+        run: |
+          npm install
+          cd src-tauri
+          cargo install tauri-cli
+
+      - name: Build Vue (or your frontend framework)
+        run: npm run build
+
+      - name: Build Tauri application
+        run: cd src-tauri && cargo tauri build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: tauri-windows-build
+          path: src-tauri/target/release/bundle/ # Adjust path if necessary
