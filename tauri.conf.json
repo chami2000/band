@@ -1,0 +1,13 @@
+"tauri": {
+  "commands": {
+    "connect_router": {
+      "cmd": "connect_router"
+    },
+    "change_lte_bands": {
+      "cmd": "change_lte_bands"
+    },
+    "get_current_bands": {
+      "cmd": "get_current_bands"
+    }
+  }
+}
