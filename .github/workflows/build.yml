@@ -38,7 +38,7 @@ jobs:
         run: cd src-tauri && cargo tauri build
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: tauri-windows-build
           path: src-tauri/target/release/bundle/ # Adjust path if necessary
