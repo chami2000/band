@@ -1,0 +1,21 @@
+{
+  "name": "your-app-name",
+  "version": "1.0.0",
+  "description": "Your Tauri app with Vue",
+  "main": "src-tauri/index.html",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "tauri:build": "tauri build",
+    "tauri:serve": "tauri dev"
+  },
+  "dependencies": {
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0",     // Check the latest version of Tauri CLI
+    "@vue/cli-service": "^5.0.0",
+    "typescript": "^4.0.0"           // Add TypeScript if needed
+  }
+}
